@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:news/app/data/model/news.dart';
+import 'package:news/app/routes/app_pages.dart';
 import 'package:news/app/utils/constant.dart';
 import 'package:news/app/widget/general_widget.dart';
 import 'package:timeago/timeago.dart' as timeAgo;
@@ -22,7 +24,9 @@ class HomeItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(Routes.DETAIL);
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,13 +36,14 @@ class HomeItem extends StatelessWidget {
             SizedBox(height: 16),
             defaultText(
               type[random.nextInt(type.length)],
-              size: 14,
+              size: 12,
               color: COLOR_PRIMARY,
               weight: FontWeight.normal,
             ),
+            SizedBox(height: 8),
             defaultText(
               news.title ?? "",
-              size: 24,
+              size: 20,
               weight: FontWeight.normal,
             ),
             SizedBox(height: 8),
