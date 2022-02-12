@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
+import 'app/utils/constant.dart';
 
 void main() {
   runApp(
@@ -13,7 +14,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // accentColor: COLOR_ACC,
-        // primaryColor: COLOR_PRIMARY,
+        primaryColor: COLOR_PRIMARY,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: "InterRegular",
         scaffoldBackgroundColor: Colors.white,
