@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/constant.dart';
-
 AppBar defaultAppBar(String title, callback, {double elevation = 0}) {
   if (callback != null) {
     return AppBar(
@@ -43,9 +41,10 @@ AppBar defaultAppBar(String title, callback, {double elevation = 0}) {
 Text defaultText(
   String text, {
   double size = 16,
-  FontWeight weight = FontWeight.w600,
+  FontWeight weight = FontWeight.normal,
   Color color = Colors.black,
   TextAlign textAlign: TextAlign.start,
+  FontStyle fontStyle: FontStyle.normal,
 }) {
   return Text(
     text,
@@ -54,6 +53,7 @@ Text defaultText(
       fontSize: size,
       fontWeight: weight,
       color: color,
+      fontStyle: fontStyle,
     ),
   );
 }

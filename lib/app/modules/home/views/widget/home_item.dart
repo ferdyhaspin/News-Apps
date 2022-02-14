@@ -8,6 +8,7 @@ import 'package:news/app/data/model/news.dart';
 import 'package:news/app/routes/app_pages.dart';
 import 'package:news/app/utils/constant.dart';
 import 'package:news/app/widget/general_widget.dart';
+import 'package:news/app/widget/progress_loading.dart';
 import 'package:timeago/timeago.dart' as timeAgo;
 
 class HomeItem extends StatelessWidget {
@@ -25,13 +26,14 @@ class HomeItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.DETAIL);
+          Get.toNamed(Routes.DETAIL, arguments: news);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CachedNetworkImage(
               imageUrl: news.contentThumbnail ?? "",
+              placeholder: (context, url) => ProgressLoading(),
             ),
             SizedBox(height: 16),
             defaultText(
@@ -44,7 +46,6 @@ class HomeItem extends StatelessWidget {
             defaultText(
               news.title ?? "",
               size: 20,
-              weight: FontWeight.normal,
             ),
             SizedBox(height: 8),
             defaultText(
